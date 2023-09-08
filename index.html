@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Marvel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            transition: .4s ease-in-out;
+            background-color: antiquewhite;
+        }
+
+        body {
+            max-width: 100vw;
+        }
+
+        header {
+            margin: 2rem 0;
+        }
+
+        #herois {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1rem;
+            padding: 1rem;
+            justify-content: center;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            border-style: dashed;
+            border-radius: 1rem;
+        }
+
+        img:hover {
+            transform: scale(1.5);
+        }
+
+        article {
+            border: solid;
+            border-radius: 1rem;
+            padding: 1rem;
+            overflow: hidden;
+            box-shadow: .3rem .3rem 1rem black;
+            margin: 2rem;
+        }
+
+        article.hover:hover {
+            display: inline-block;
+            transform: scale(1.05);
+        }
+
+        .ocultar {
+            display: none;
+        }
+
+        .dados {
+            border: 1px solid black;
+            border-radius: .5rem;
+            width: 50vw;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .dados div {
+            border-radius: 50%;
+            border: 1px solid black;
+            padding: .2rem;
+        }
+
+        input {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>API MARVEL</h1>
+        </div>
+    </header>
+    <form action="submit">
+        <div class="dados">
+            <label for="pesquisa">
+                <div>🔍</div>
+            </label>
+            <input type="text" id="pesquisa" placeholder="Digite o nome aqui"></input>
+        </div>
+    </form>
+    <main>
+        <!-- Puxar a API passo 1 - finalizado -->
+        <!--  Passo 2
+            ● Página de listagem de personagens (home):
+                ○ Exibir os 20 primeiros resultados da API; - Finalizado
+                ○ Permitir ordenação por nome do personagem; - Andamento
+                ○ Permitir filtrar por nome, pelo campo de busca; - Finalizado
+                ○ Permitir mostrar apenas os personagens favoritos; - Andamento
+                ○ Permitir o usuário favoritar/desfavoritar até 5 personagens; - Andamento
+            ● Página de detalhe do personagem:
+                ○ Exibir dados do personagem; - Andamento
+                ○ Exibir últimos 10 quadrinhos lançados deste personagem (onSaleDate); - Andamento
+                ○ Permitir o usuário favoritar/desfavoritar (dentro do limite de 5). - Andamento -->
+        <div id="herois">
+            <div class="animate__animated animate__jello"></div>
+
+        </div>
+    </main>
+    <article class="detalhes">
+        <section>
+            <h2></h2>
+            <img src="">
+            <p></p>
+        </section>
+        <section>
+            <fieldset>
+                <legend>Quadrinhos</legend>
+                <div></div>
+            </fieldset>
+            <fieldset>
+                <legend>Filmes</legend>
+                <div></div>
+            </fieldset>
+            <fieldset>
+                <legend>Avaliação</legend>
+                <div>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Último quadrinho</legend>
+                <div></div>
+            </fieldset>
+        </section>
+        <section>
+            <h3>Últimos lançamentos</h3>
+
+        </section>
+    </article>
+
+    <script>
+        const ts = 1693960482;
+        const key = "5645476275416bef6b96eb9421176902";
+        const hash = "6f40a6a01f538894548a4f0bcf6867d5";
+
+        fetch(
+                `https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}&limit=100&offset=1239`
+            )
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data)
+                const divHerois = document.getElementById('herois');
+
+                data.data.results.forEach(element => {
+                    const srcImage = element.thumbnail.path + '.' + element.thumbnail.extension;
+                    const nomeHeroi = element.name;
+
+                    criaDivHeroi(srcImage, nomeHeroi, divHerois);
+                });
+
+                var dados = data
+            });
+        // 
+
+        function criaDivHeroi(imagem, nome, divHeroi) {
+            const divPai = document.createElement('div');
+            const divFilho = document.createElement('div');
+            const textName = document.createElement('p');
+            const img = document.createElement('img');
+            const ancora = document.createElement('article')
+
+            textName.textContent = nome;
+            img.src = imagem;
+
+            img.title = nome
+            divFilho.appendChild(img);
+            divFilho.appendChild(textName);
+            divPai.appendChild(divFilho);
+            ancora.appendChild(divPai)
+            ancora.classList.add('hover')
+            divHeroi.appendChild(ancora);
+
+
+        }
+
+        // Associar a função de pesquisa ao evento de digitação no input
+        document.getElementById("pesquisa").addEventListener("input", evento => {
+            let termoPesquisa = document.getElementById("pesquisa").value.toLowerCase();
+            let divs = document.querySelectorAll("a");
+
+            for (var i = 0; i < divs.length; i++) {
+                var textoDiv = divs[i].querySelector("p").textContent.toLowerCase();
+                var palavrasChave = termoPesquisa.split(" "); // array das pesquisas
+                var todasAsPalavrasPresentes = true;
+
+                // Loop através de todas as palavras-chave
+                for (var j = 0; j < palavrasChave.length; j++) {
+                    // Verifique se a palavra-chave atual não está presente no texto da âncora
+                    if (!textoDiv.includes(palavrasChave[j])) {
+                        // Se uma palavra-chave não estiver presente, defina a flag como falso e saia do loop
+                        todasAsPalavrasPresentes = false;
+                        break;
+                    }
+                }
+                if (todasAsPalavrasPresentes) {
+                    divs[i].style.display = "block";
+                } else {
+                    divs[i].style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
