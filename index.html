@@ -198,7 +198,7 @@
         // Associar a função de pesquisa ao evento de digitação no input
         document.getElementById("pesquisa").addEventListener("input", evento => {
             let termoPesquisa = document.getElementById("pesquisa").value.toLowerCase();
-            let divs = document.querySelectorAll("a");
+            let divs = document.querySelectorAll("article");
 
             for (var i = 0; i < divs.length; i++) {
                 var textoDiv = divs[i].querySelector("p").textContent.toLowerCase();
