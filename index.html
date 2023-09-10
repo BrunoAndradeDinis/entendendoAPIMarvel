@@ -5,83 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Marvel</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-align: center;
-            transition: .4s ease-in-out;
-            background-color: antiquewhite;
-        }
-
-        body {
-            max-width: 100vw;
-        }
-
-        header {
-            margin: 2rem 0;
-        }
-
-        #herois {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 1rem;
-            padding: 1rem;
-            justify-content: center;
-        }
-
-        img {
-            width: 300px;
-            height: 300px;
-            margin: 20px;
-            border-style: dashed;
-            border-radius: 1rem;
-        }
-
-        img:hover {
-            transform: scale(1.5);
-        }
-
-        article {
-            border: solid;
-            border-radius: 1rem;
-            padding: 1rem;
-            overflow: hidden;
-            box-shadow: .3rem .3rem 1rem black;
-            margin: 2rem;
-        }
-
-        article.hover:hover {
-            display: inline-block;
-            transform: scale(1.05);
-        }
-
-        .ocultar {
-            display: none;
-        }
-
-        .dados {
-            border: 1px solid black;
-            border-radius: .5rem;
-            width: 50vw;
-            margin: 0 auto;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .dados div {
-            border-radius: 50%;
-            border: 1px solid black;
-            padding: .2rem;
-        }
-
-        input {
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -96,28 +21,74 @@
                 <div>🔍</div>
             </label>
             <input type="text" id="pesquisa" placeholder="Digite o nome aqui"></input>
+            <div>
+                <section id="favoritos">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                            <style>
+                                svg {
+                                    fill: #f00000
+                                }
+                            </style>
+                            <path
+                                d="M158.4 32.6c4.8-12.4-1.4-26.3-13.8-31s-26.3 1.4-31 13.8L81.1 100c-7.9 20.7-3 44.1 12.7 59.7l57.4 57.4L70.8 190.3c-2.4-.8-4.3-2.7-5.1-5.1L46.8 128.4C42.6 115.8 29 109 16.4 113.2S-3 131 1.2 143.6l18.9 56.8c5.6 16.7 18.7 29.8 35.4 35.4L116.1 256 55.6 276.2c-16.7 5.6-29.8 18.7-35.4 35.4L1.2 368.4C-3 381 3.8 394.6 16.4 398.8s26.2-2.6 30.4-15.2l18.9-56.8c.8-2.4 2.7-4.3 5.1-5.1l80.4-26.8L93.7 352.3C78.1 368 73.1 391.4 81.1 412l32.5 84.6c4.8 12.4 18.6 18.5 31 13.8s18.5-18.6 13.8-31l-32.5-84.6c-1.1-3-.4-6.3 1.8-8.5L160 353.9c1 52.1 43.6 94.1 96 94.1s95-41.9 96-94.1l32.3 32.3c2.2 2.2 2.9 5.6 1.8 8.5l-32.5 84.6c-4.8 12.4 1.4 26.3 13.8 31s26.3-1.4 31-13.8L430.9 412c7.9-20.7 3-44.1-12.7-59.7l-57.4-57.4 80.4 26.8c2.4 .8 4.3 2.7 5.1 5.1l18.9 56.8c4.2 12.6 17.8 19.4 30.4 15.2s19.4-17.8 15.2-30.4l-18.9-56.8c-5.6-16.7-18.7-29.8-35.4-35.4L395.9 256l60.5-20.2c16.7-5.6 29.8-18.7 35.4-35.4l18.9-56.8c4.2-12.6-2.6-26.2-15.2-30.4s-26.2 2.6-30.4 15.2l-18.9 56.8c-.8 2.4-2.7 4.3-5.1 5.1l-80.4 26.8 57.4-57.4c15.6-15.6 20.6-39 12.7-59.7L398.4 15.4C393.6 3 379.8-3.2 367.4 1.6s-18.5 18.6-13.8 31l32.5 84.6c1.1 3 .4 6.3-1.8 8.5L336 174.1V160c0-31.8-18.6-59.3-45.5-72.2c-9.1-4.4-18.5 3.3-18.5 13.4V112c0 8.8-7.2 16-16 16s-16-7.2-16-16V101.2c0-10.1-9.4-17.7-18.5-13.4C194.6 100.7 176 128.2 176 160v14.1l-48.3-48.3c-2.2-2.2-2.9-5.6-1.8-8.5l32.5-84.6z" />
+                        </svg></div>
+
+                </section>
+            </div>
+            <div>
+                <section id="apagarFavoritos">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                            viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M164.5 107.4l33.4-73.5c5.5-12.1 .1-26.3-11.9-31.8s-26.3-.1-31.8 11.9L128 71.7 101.9 14.1C96.4 2 82.1-3.3 70.1 2.1S52.7 21.9 58.1 33.9l33.4 73.5c-10.2 7.1-18.2 17-22.9 28.6h-17l-4.1-20.7c-2.6-13-15.2-21.4-28.2-18.8S-2.1 111.7 .5 124.7l8 40C10.7 175.9 20.6 184 32 184H64v23.3l-37.8 9.5c-9.5 2.4-16.6 10.2-17.9 19.9l-8 56c-1.9 13.1 7.2 25.3 20.4 27.2s25.3-7.2 27.2-20.4l5.7-40 18.4-4.6C82.7 274.6 103.8 288 128 288s45.3-13.4 56.1-33.2l18.4 4.6 5.7 40c1.9 13.1 14 22.2 27.2 20.4s22.2-14 20.4-27.2l-8-56c-1.4-9.7-8.5-17.5-17.9-19.9L192 207.3V184h32c11.4 0 21.3-8.1 23.5-19.3l8-40c2.6-13-5.8-25.6-18.8-28.2s-25.6 5.8-28.2 18.8L204.3 136h-17c-4.7-11.6-12.7-21.5-22.9-28.6zM496 286.5l65.6-47c10.8-7.7 13.3-22.7 5.6-33.5s-22.7-13.3-33.5-5.6l-51.4 36.8 6.1-62.9c1.3-13.2-8.4-24.9-21.6-26.2s-24.9 8.4-26.2 21.6L432.8 250c-12.3 1-24.2 5.6-34.1 13.3L384 254.8l6.8-20c4.2-12.6-2.5-26.2-15-30.4s-26.2 2.5-30.4 15l-13.1 38.6c-3.7 10.8 .8 22.8 10.7 28.5l27.7 16L359 322.7 321.5 312c-9.4-2.7-19.5 .6-25.5 8.3l-34.9 44.5c-8.2 10.4-6.4 25.5 4.1 33.7s25.5 6.4 33.7-4.1l25-31.8 18.2 5.2c-.5 22.6 11 44.7 32 56.8s45.9 11 65.2-.7l13.6 13.2-15.1 37.5c-4.9 12.3 1 26.3 13.3 31.2s26.3-1 31.2-13.3L503.5 440c3.6-9.1 1.4-19.4-5.6-26.2l-28-27.1 11.6-20.1 27.7 16c9.9 5.7 22.5 3.7 30-4.9L566.2 347c8.7-10 7.8-25.1-2.2-33.9s-25.1-7.8-33.9 2.2l-13.9 15.9-14.7-8.5c1.7-12.4-.2-25-5.5-36.2z" />
+                        </svg></div>
+
+                </section>
+            </div>
+            <div>
+                <section id="filtro-botao">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                            viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M183.6 42.4C177.5 35.8 169 32 160 32s-17.5 3.8-23.6 10.4l-88 96c-11.9 13-11.1 33.3 2 45.2s33.3 11.1 45.2-2L128 146.3V448c0 17.7 14.3 32 32 32s32-14.3 32-32V146.3l32.4 35.4c11.9 13 32.2 13.9 45.2 2s13.9-32.2 2-45.2l-88-96zM320 320c0 17.7 14.3 32 32 32h50.7l-73.4 73.4c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H429.3l73.4-73.4c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8H352c-17.7 0-32 14.3-32 32zM416 32c-12.1 0-23.2 6.8-28.6 17.7l-64 128-16 32c-7.9 15.8-1.5 35 14.3 42.9s35 1.5 42.9-14.3l7.2-14.3h88.4l7.2 14.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9l-16-32-64-128C439.2 38.8 428.1 32 416 32zM395.8 176L416 135.6 436.2 176H395.8z" />
+                        </svg></div>
+
+                </section>
+            </div>
+            <div>
+                <section id="filtro-botao-2">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                            viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M183.6 469.6C177.5 476.2 169 480 160 480s-17.5-3.8-23.6-10.4l-88-96c-11.9-13-11.1-33.3 2-45.2s33.3-11.1 45.2 2L128 365.7V64c0-17.7 14.3-32 32-32s32 14.3 32 32V365.7l32.4-35.4c11.9-13 32.2-13.9 45.2-2s13.9 32.2 2 45.2l-88 96zM320 320c0-17.7 14.3-32 32-32H480c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9L429.3 416H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H352c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9L402.7 352H352c-17.7 0-32-14.3-32-32zM416 32c12.1 0 23.2 6.8 28.6 17.7l64 128 16 32c7.9 15.8 1.5 35-14.3 42.9s-35 1.5-42.9-14.3L460.2 224H371.8l-7.2 14.3c-7.9 15.8-27.1 22.2-42.9 14.3s-22.2-27.1-14.3-42.9l16-32 64-128C392.8 38.8 403.9 32 416 32zM395.8 176h40.4L416 135.6 395.8 176z" />
+                        </svg></div>
+
+                </section>
+            </div>
         </div>
+
     </form>
     <main>
         <!-- Puxar a API passo 1 - finalizado -->
-        <!--  Passo 2
+        <!-- Passo 2
             ● Página de listagem de personagens (home):
                 ○ Exibir os 20 primeiros resultados da API; - Finalizado
-                ○ Permitir ordenação por nome do personagem; - Andamento
+                ○ Permitir ordenação por nome do personagem; - Finalizado 
                 ○ Permitir filtrar por nome, pelo campo de busca; - Finalizado
-                ○ Permitir mostrar apenas os personagens favoritos; - Andamento
-                ○ Permitir o usuário favoritar/desfavoritar até 5 personagens; - Andamento
+                ○ Permitir mostrar apenas os personagens favoritos; - Finalizado
+                ○ Permitir o usuário favoritar/desfavoritar até 5 personagens; - Finalizado
+            Passo 3
             ● Página de detalhe do personagem:
                 ○ Exibir dados do personagem; - Andamento
                 ○ Exibir últimos 10 quadrinhos lançados deste personagem (onSaleDate); - Andamento
                 ○ Permitir o usuário favoritar/desfavoritar (dentro do limite de 5). - Andamento -->
         <div id="herois">
-            <div class="animate__animated animate__jello"></div>
 
         </div>
     </main>
-    <article class="detalhes">
+    <div class="detalhes">
         <section>
+
             <h2></h2>
             <img src="">
             <p></p>
@@ -146,7 +117,7 @@
             <h3>Últimos lançamentos</h3>
 
         </section>
-    </article>
+    </div>
 
     <script>
         const ts = 1693960482;
@@ -154,8 +125,8 @@
         const hash = "6f40a6a01f538894548a4f0bcf6867d5";
 
         fetch(
-                `https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}&limit=100&offset=1239`
-            )
+            `https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}&limit=10&offset=1247`
+        )
             .then(response => {
                 return response.json()
             })
@@ -171,6 +142,165 @@
                 });
 
                 var dados = data
+
+                // let favoritos = document.querySelectorAll("i")
+
+
+                // function likes() {
+                //     favoritos.forEach(favorito => {
+                //         favorito.addEventListener("click", favorito => {
+                //             console.log(favorito.target.classList)
+
+                //             if (favorito.target.classList.contains("fa-regular")) {
+                //                 favorito.target.classList.remove("fa-regular")
+                //                 favorito.target.classList.add("fa-solid")
+                //             } else {
+                //                 favorito.target.classList.remove("fa-solid")
+                //                 favorito.target.classList.add("fa-regular")
+                //             }
+
+                //         })
+                //     })
+                // }
+
+                // likes()
+                let favoritos = document.querySelectorAll("i");
+                let favoritosCount = 0; // Variável para rastrear o número de favoritos marcados
+
+                function likes() {
+                    favoritos.forEach(favorito => {
+                        favorito.addEventListener("click", function (event) {
+                            const tag = event.target;
+                            if (tag.classList.contains("fa-regular") && favoritosCount < 5) {
+                                tag.classList.remove("fa-regular");
+                                tag.classList.add("fa-solid");
+                                tag.parentNode.parentNode.parentNode.classList.add("fa-regular")
+                                favoritosCount++;
+                            } else if (tag.classList.contains("fa-solid")) {
+                                tag.classList.remove("fa-solid");
+                                tag.classList.add("fa-regular");
+                                tag.parentNode.parentNode.parentNode.classList.remove("fa-regular")
+                                favoritosCount--;
+                            }
+                            // Atualize a interface para refletir o número atual de favoritos
+                            atualizarInterface();
+                        });
+                    });
+                }
+
+                function atualizarInterface() {
+                    // Oculte as tags que não são favoritas quando o limite é atingido
+                    if (favoritosCount >= 5) alert("Seu limite de likes!")
+                }
+                document.getElementById('favoritos').addEventListener("click", function () {
+                    mostrarFavoritos()
+                })
+                document.getElementById('apagarFavoritos').addEventListener("click", function () {
+                    apagarFavoritos()
+                })
+
+                function mostrarFavoritos() {
+                    console.log(document.getElementById('favoritos'))
+
+                    favoritos.forEach(favorito => {
+                        let apagado = favorito.parentNode.parentNode.parentNode.parentNode.style.display
+                        console.log(apagado)
+                        apagado
+
+                        if (favorito.classList.contains("fa-regular")/* && favoritosCount >= 5*/) {
+                            favorito.parentNode.parentNode.parentNode.parentNode.style.display = "none";
+
+                        } else {
+                            favorito.parentNode.parentNode.parentNode.parentNode.style.display = "flex";
+                        }
+
+
+                    });
+                }
+                // Apagar favoritos
+                function apagarFavoritos() {
+                    favoritos.forEach(favorito => {
+                        let apagado = favorito.parentNode.parentNode.parentNode.parentNode.style
+                        console.log(apagado)
+
+                        if (favorito.classList.contains("fa-regular")) {
+                            apagado.display = "flex"
+                        }
+
+                    })
+                }
+
+                const filtroBotao = document.getElementById("filtro-botao");
+                if (filtroBotao) {
+                    filtroBotao.addEventListener("click", function () {
+                        // Transforme a NodeList em um array para usar sort()
+                        const listaHerois = Array.from(document.querySelectorAll(".hover"));
+
+                        // Ordene a lista em ordem alfabética invertida
+                        listaHerois.sort(function (a, b) {
+                            const nomeA = a.textContent.trim();
+                            const nomeB = b.textContent.trim();
+                            return nomeB.localeCompare(nomeA);
+                        });
+
+                        // Remova todos os heróis da página
+                        listaHerois.forEach(heroi => {
+                            divHerois.removeChild(heroi);
+                        });
+
+                        // Adicione os heróis ordenados de volta à página
+                        listaHerois.forEach(heroi => {
+                            divHerois.appendChild(heroi);
+                        });
+                    });
+                }
+
+                const botao2 = document.getElementById("filtro-botao-2");
+                if (botao2) {
+                    botao2.addEventListener("click", function () {
+                        // Transforme a NodeList em um array para usar sort()
+                        const listaHerois = Array.from(document.querySelectorAll(".hover"));
+
+                        // Ordene a lista em ordem alfabética
+                        listaHerois.sort(function (a, b) {
+                            const nomeA = a.textContent.trim();
+                            const nomeB = b.textContent.trim();
+                            return nomeA.localeCompare(nomeB);
+                        });
+
+                        // Remova todos os heróis da página
+                        listaHerois.forEach(heroi => {
+                            divHerois.removeChild(heroi);
+                        });
+
+                        // Adicione os heróis ordenados de volta à página
+                        listaHerois.forEach(heroi => {
+                            divHerois.appendChild(heroi);
+                        });
+                    });
+                }
+                // Chame a função para ativá-la
+                likes();
+
+                let personagens = document.querySelectorAll("article")
+
+                personagens.forEach(personagem => {
+                    personagem.addEventListener("click", () =>{
+                        const linhaCompara = personagem.querySelector("p").textContent
+                        console.log(linhaCompara)
+                        dados.data.results.forEach(resultados => {
+                            console.log(resultados.name)
+
+                            if(linhaCompara === resultados.name){
+                                
+                            }
+                        })
+                    })
+                })
+
+                function detalhes(){
+
+                }
             });
         // 
 
@@ -180,18 +310,22 @@
             const textName = document.createElement('p');
             const img = document.createElement('img');
             const ancora = document.createElement('article')
+            const divIcon = document.createElement('div');
+            const icon = document.createElement('i');
 
             textName.textContent = nome;
             img.src = imagem;
+            icon.classList = "fa-regular fa-heart"
 
             img.title = nome
             divFilho.appendChild(img);
             divFilho.appendChild(textName);
+            divIcon.appendChild(icon)
+            divFilho.appendChild(divIcon);
             divPai.appendChild(divFilho);
             ancora.appendChild(divPai)
             ancora.classList.add('hover')
             divHeroi.appendChild(ancora);
-
 
         }
 
@@ -221,6 +355,11 @@
                 }
             }
         });
+
+
+
+
+
     </script>
 </body>
 
