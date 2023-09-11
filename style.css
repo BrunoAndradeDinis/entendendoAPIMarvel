@@ -5,6 +5,10 @@
     text-align: center;
     transition: .4s ease-in-out;
     background-color: antiquewhite;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 0;
 }
 
 body {
@@ -31,13 +35,14 @@ img {
     border-radius: 1rem;
 }
 
-img:hover {
+img.hero:hover {
     transform: scale(2);
+    margin-top: 3rem;
 }
 
 article {
     width: 250px;
-    height: 250px;
+    height: 270px;
     border: solid;
     border-radius: 1rem;
     padding: 1rem;
@@ -45,7 +50,7 @@ article {
     box-shadow: .3rem .3rem 1rem black;
     margin: 2rem;
     max-width: 250px;
-    max-height: 250px;
+    max-height: 300px;
 }
 
 article.hover:hover {
@@ -61,7 +66,7 @@ article.hover:hover {
     border: 1px solid black;
     border-radius: .5rem;
     width: 50vw;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -95,4 +100,50 @@ section:hover{
     transform: scale(1.1);
     background-color: darkblue;
     box-shadow: 10px 10px 10px orangered;
+}
+ul {
+    columns: 3;
+    list-style: none;
+    overflow: hidden;
+}
+
+li {
+    display: inline-block;
+    padding: .5rem;
+}
+
+p{
+    text-align: center;
+    max-width: 60vw;
+    padding: 0 0;
+}
+
+fieldset {
+    width: 70vw;
+    margin: 2rem auto;
+    border-radius: 1rem;
+}
+
+legend {
+    border: 1px solid;
+    padding: .3rem;
+    border-radius: 1rem;
+}
+
+.detalhes {
+    position: fixed;
+    padding: 1rem;
+    top: -1px;
+    height: 100vh;
+    width: 100vw;
+    align-self: center;
+    background: rgba(000,000,000,0.5);
+    display: none;
+    overflow: scroll;
+}
+
+
+button {
+    margin: .5rem;
+    padding: .2rem;
 }
