@@ -38,6 +38,7 @@ img {
 img.hero:hover {
     transform: scale(2);
     margin-top: 3rem;
+    transition: .3s ease-in-out;
 }
 
 article {
@@ -65,7 +66,7 @@ article.hover:hover {
 .dados {
     border: 1px solid black;
     border-radius: .5rem;
-    width: 50vw;
+    width: 50%;
     margin: 0 auto 2rem;
     overflow: hidden;
     display: flex;
@@ -99,7 +100,7 @@ section {
 section:hover{
     transform: scale(1.1);
     background-color: darkblue;
-    box-shadow: 10px 10px 10px orangered;
+    box-shadow: 10px 10px 10px 100px orangered;
 }
 ul {
     columns: 3;
@@ -146,4 +147,32 @@ legend {
 button {
     margin: .5rem;
     padding: .2rem;
+}
+
+
+@media (max-width: 870px) {
+    .dados{
+        display: block;
+        text-align: center;
+    }
+    .dados div{
+        display: inline-block;
+        text-align: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0 auto;
+    }
+    .dados div .icone {
+        width: 2rem;
+        height: 2rem;
+    }
+    .botoes {
+        display: block;
+        width: 50%;
+        margin: 0 auto 2rem;
+    }
+    input[type="text"]{
+        width: 40vw;
+    }
+
 }
